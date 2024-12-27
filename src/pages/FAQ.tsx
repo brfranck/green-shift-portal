@@ -1,8 +1,13 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const FAQ = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  
   const faqs = [
     {
       question: "Qu'est-ce que GreenShift ?",
@@ -46,6 +51,12 @@ const FAQ = () => {
     }
   ];
 
+  const filteredFaqs = faqs.filter(
+    faq => 
+      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -68,7 +79,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 min-h-screen">
+    <div className="container mx-auto py-8 px-4 md:px-6 lg:px-8 min-h-screen">
       <motion.div 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -78,20 +89,30 @@ const FAQ = () => {
         <img 
           src="/lovable-uploads/06537a1b-ce0d-4e35-b37c-a3f6eb3289ea.png"
           alt="GreenShift Logo"
-          className="w-64 h-auto mb-6"
+          className="w-48 md:w-64 h-auto mb-6"
         />
       </motion.div>
 
       <Card className="mb-8 bg-white/80 backdrop-blur-sm shadow-lg">
         <CardHeader>
-          <CardTitle className="text-3xl font-bold text-center text-primary">
+          <CardTitle className="text-2xl md:text-3xl font-bold text-center text-primary">
             Questions Fréquemment Posées
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-center text-muted-foreground mb-8">
-            Bienvenue sur la page FAQ de GreenShift ! Nous avons réuni ici les questions les plus fréquemment posées sur nos services, produits et initiatives. Si vous avez d'autres questions, n'hésitez pas à nous contacter.
+            Bienvenue sur la page FAQ de GreenShift ! Nous avons réuni ici les questions les plus fréquemment posées sur nos services, produits et initiatives.
           </p>
+          <div className="relative max-w-md mx-auto mb-8">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+            <Input
+              type="text"
+              placeholder="Rechercher une question..."
+              className="pl-10 w-full"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </CardContent>
       </Card>
 
@@ -102,26 +123,48 @@ const FAQ = () => {
         className="space-y-4"
       >
         <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
+          {filteredFaqs.map((faq, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
+              layout
+              className="w-full"
             >
               <AccordionItem
                 value={`item-${index}`}
-                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border overflow-hidden"
+                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border overflow-hidden transition-all duration-300 ease-in-out hover:shadow-md"
               >
-                <AccordionTrigger className="px-6 hover:no-underline">
-                  <span className="text-left font-medium text-primary">{faq.question}</span>
+                <AccordionTrigger className="px-4 md:px-6 py-4 hover:no-underline group">
+                  <span className="text-left font-medium text-primary group-hover:text-primary/80 transition-colors">
+                    {faq.question}
+                  </span>
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 whitespace-pre-line text-muted-foreground">
-                  {faq.answer}
+                <AccordionContent className="px-4 md:px-6 pb-4 whitespace-pre-line text-muted-foreground">
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {faq.answer}
+                  </motion.div>
                 </AccordionContent>
               </AccordionItem>
             </motion.div>
           ))}
         </Accordion>
       </motion.div>
+
+      {filteredFaqs.length === 0 && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center mt-8 p-4"
+        >
+          <p className="text-muted-foreground">
+            Aucune question ne correspond à votre recherche. N'hésitez pas à nous contacter directement !
+          </p>
+        </motion.div>
+      )}
 
       <motion.div 
         initial={{ opacity: 0 }}
