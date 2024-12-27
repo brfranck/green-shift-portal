@@ -39,7 +39,7 @@ const FAQ = () => {
         },
         {
           question: "Comment puis-je participer à vos projets ?",
-          answer: "Nous collaborons avec des particuliers, entreprises et ONG. Vous pouvez rejoindre nos initiatives en tant que partenaire, bénévole ou bénéficiaire. Contactez-nous pour discuter des opportunités."
+          answer: "Nous collaborons avec des particuliers, entreprises, ONG et gouvernements. Vous pouvez rejoindre nos initiatives en tant que partenaire, bénévole ou bénéficiaire. Contactez-nous pour discuter des opportunités."
         }
       ]
     },
