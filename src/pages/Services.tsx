@@ -4,24 +4,29 @@ import { Calculator } from "@/components/Calculator";
 import { ProcessTimeline } from "@/components/ProcessTimeline";
 import { CaseStudies } from "@/components/CaseStudies";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Users, Sprout, Recycle, SunMedium } from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      title: "Conseil en Développement Durable",
-      description: "Accompagnement stratégique pour une transition écologique réussie.",
+      title: "Mutualisation des Ressources",
+      description: "En tant que GIE, nous permettons à nos membres de partager leurs ressources et expertises pour maximiser l'impact environnemental.",
+      icon: Users
     },
     {
-      title: "Audits Environnementaux",
-      description: "Évaluation complète de votre impact environnemental.",
-    },
-    {
-      title: "Solutions d'Énergie Renouvelable",
-      description: "Implémentation de solutions énergétiques durables.",
+      title: "Solutions Durables",
+      description: "Développement et mise en œuvre de solutions écologiques innovantes pour nos membres et clients.",
+      icon: Sprout
     },
     {
       title: "Gestion des Déchets",
-      description: "Optimisation de votre cycle de gestion des déchets.",
+      description: "Optimisation collective du cycle de gestion des déchets pour une meilleure efficacité.",
+      icon: Recycle
+    },
+    {
+      title: "Énergie Renouvelable",
+      description: "Mutualisation des investissements dans les solutions d'énergie renouvelable.",
+      icon: SunMedium
     },
   ];
 
@@ -56,7 +61,7 @@ const Services = () => {
       >
         <h1 className="text-4xl font-bold text-primary mb-4">Nos Services</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Des solutions innovantes pour un avenir durable
+          En tant que Groupement d'Intérêt Économique (GIE), nous mutualisons les ressources et expertises de nos membres pour offrir des solutions durables innovantes.
         </p>
       </motion.div>
 
@@ -77,7 +82,10 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div key={index} variants={itemVariants}>
                 <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
-                  <CardHeader>
+                  <CardHeader className="flex flex-row items-center gap-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                      <service.icon className="w-6 h-6 text-primary" />
+                    </div>
                     <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
