@@ -10,17 +10,17 @@ const testimonials = [
     rating: 5
   },
   {
-    name: "Thomas Laurent",
-    role: "PDG",
-    company: "Innovations Durables",
-    content: "Une équipe professionnelle qui comprend vraiment les enjeux de la transition écologique. Leur approche personnalisée a fait toute la différence.",
+    name: "Jean Kalonji",
+    role: "Chef du Village",
+    company: "Village de Kalonge",
+    content: "L'installation des panneaux solaires a transformé notre communauté. Nos enfants peuvent maintenant étudier le soir et nous avons réduit nos dépenses en carburant.",
     rating: 5
   },
   {
     name: "Sophie Martin",
-    role: "Responsable Développement Durable",
-    company: "GreenTech SA",
-    content: "Les solutions proposées par Green Shift sont innovantes et efficaces. Nous avons vu des résultats concrets dès les premiers mois.",
+    role: "Agricultrice",
+    company: "Ferme Durable de Bukavu",
+    content: "Le compost fourni par Green Shift est d'excellente qualité. Nos rendements ont augmenté et nous utilisons maintenant beaucoup moins d'engrais chimiques.",
     rating: 5
   }
 ];
@@ -40,6 +40,9 @@ export const Testimonials = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">
             Ce que nos clients disent
           </h2>
+          <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+            Découvrez l'impact réel de nos solutions à travers les témoignages de nos clients et partenaires.
+          </p>
         </motion.div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
@@ -49,7 +52,7 @@ export const Testimonials = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
               <div className="flex mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
