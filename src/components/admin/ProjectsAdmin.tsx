@@ -13,6 +13,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { ImageIcon, Loader2 } from "lucide-react";
 
 export const ProjectsAdmin = () => {
   const { toast } = useToast();
@@ -21,6 +22,7 @@ export const ProjectsAdmin = () => {
   const [impact, setImpact] = useState("");
   const [location, setLocation] = useState("");
   const [imageUrl, setImageUrl] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
 
   const { data: projects, refetch } = useQuery({
     queryKey: ["projects"],
@@ -30,6 +32,43 @@ export const ProjectsAdmin = () => {
       return data;
     },
   });
+
+  const handleImageUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    try {
+      setIsUploading(true);
+      
+      // Créer un nom de fichier unique
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Math.random().toString(36).substring(2)}.${fileExt}`;
+      const filePath = `${fileName}`;
+
+      // Téléverser le fichier
+      const { error: uploadError, data } = await supabase.storage
+        .from('project_images')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      // Obtenir l'URL publique
+      const { data: { publicUrl } } = supabase.storage
+        .from('project_images')
+        .getPublicUrl(filePath);
+
+      setImageUrl(publicUrl);
+      toast({ title: "Image téléversée avec succès" });
+    } catch (error) {
+      console.error("Erreur lors du téléversement:", error);
+      toast({ 
+        title: "Erreur lors du téléversement de l'image",
+        variant: "destructive"
+      });
+    } finally {
+      setIsUploading(false);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,11 +140,33 @@ export const ProjectsAdmin = () => {
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
-        <Input
-          placeholder="URL de l'image"
-          value={imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-        />
+        <div className="flex gap-4 items-center">
+          <Input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="hidden"
+            id="image-upload"
+          />
+          <label
+            htmlFor="image-upload"
+            className="flex items-center gap-2 px-4 py-2 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-md cursor-pointer"
+          >
+            {isUploading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <ImageIcon className="h-4 w-4" />
+            )}
+            Téléverser une image
+          </label>
+          {imageUrl && (
+            <img 
+              src={imageUrl} 
+              alt="Aperçu" 
+              className="h-20 w-20 object-cover rounded-md"
+            />
+          )}
+        </div>
         <Button type="submit">Ajouter le projet</Button>
       </form>
 
