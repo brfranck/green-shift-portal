@@ -114,11 +114,11 @@ const Projects = () => {
   const years = ["2023", "2022"];
 
   const filteredProjects = projects.filter(project => {
-    const typeMatch = !selectedType || project.type === selectedType;
-    const locationMatch = !selectedLocation || project.location === selectedLocation;
+    const typeMatch = !selectedType || selectedType === "all" || project.type === selectedType;
+    const locationMatch = !selectedLocation || selectedLocation === "all" || project.location === selectedLocation;
     const impactsMatch = selectedImpacts.length === 0 || 
       project.impactTypes.some(impact => selectedImpacts.includes(impact));
-    const yearMatch = !selectedYear || project.year === selectedYear;
+    const yearMatch = !selectedYear || selectedYear === "all" || project.year === selectedYear;
     
     return typeMatch && locationMatch && impactsMatch && yearMatch;
   });
@@ -231,3 +231,4 @@ const Projects = () => {
 };
 
 export default Projects;
+

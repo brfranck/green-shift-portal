@@ -43,12 +43,12 @@ export const ProjectFilters = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
           <h3 className="font-medium mb-2">Type de projet</h3>
-          <Select value={selectedType || ""} onValueChange={setSelectedType}>
+          <Select value={selectedType || "all"} onValueChange={setSelectedType}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Tous les types" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Tous</SelectItem>
+              <SelectItem value="all">Tous</SelectItem>
               {projectTypes.map(type => (
                 <SelectItem key={type} value={type}>
                   {type}
@@ -60,12 +60,12 @@ export const ProjectFilters = ({
 
         <div>
           <h3 className="font-medium mb-2">Localisation</h3>
-          <Select value={selectedLocation || ""} onValueChange={setSelectedLocation}>
+          <Select value={selectedLocation || "all"} onValueChange={setSelectedLocation}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Toutes les localisations" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Toutes</SelectItem>
+              <SelectItem value="all">Toutes</SelectItem>
               {locations.map(location => (
                 <SelectItem key={location} value={location}>
                   {location}
@@ -93,12 +93,12 @@ export const ProjectFilters = ({
 
         <div>
           <h3 className="font-medium mb-2">Année</h3>
-          <Select value={selectedYear || ""} onValueChange={setSelectedYear}>
+          <Select value={selectedYear || "all"} onValueChange={setSelectedYear}>
             <SelectTrigger className="w-full">
               <SelectValue placeholder="Toutes les années" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">Toutes</SelectItem>
+              <SelectItem value="all">Toutes</SelectItem>
               {years.map(year => (
                 <SelectItem key={year} value={year}>
                   {year}
