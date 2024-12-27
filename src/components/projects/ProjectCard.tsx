@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface ProjectCardProps {
   project: {
@@ -13,6 +14,7 @@ interface ProjectCardProps {
     type: string;
     location: string;
     year: string;
+    images?: string[];
   };
 }
 
@@ -31,6 +33,27 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.div variants={itemVariants}>
       <Card className="h-full bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
+        {project.images && project.images.length > 0 && (
+          <div className="p-4">
+            <Carousel className="w-full">
+              <CarouselContent>
+                {project.images.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="aspect-video w-full overflow-hidden rounded-lg">
+                      <img
+                        src={image}
+                        alt={`${project.title} - Image ${index + 1}`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+        )}
         <CardHeader>
           <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
           <div className="flex flex-wrap gap-2 mt-2">

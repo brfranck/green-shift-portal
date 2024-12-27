@@ -14,6 +14,28 @@ const Projects = () => {
   
   const projects = [
     {
+      title: "Programme d'Agriculture Régénératrice dans la Zone Rurale de Bukavu",
+      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale tout en réduisant l'impact environnemental dans les zones rurales.",
+      impacts: [
+        "Formation de 25 agriculteurs aux pratiques régénératrices",
+        "Augmentation de 40% des rendements agricoles",
+        "Réduction de 60% de l'utilisation d'intrants chimiques",
+        "Amélioration de la rétention d'eau dans les sols"
+      ],
+      testimonial: {
+        quote: "Grâce à ces nouvelles pratiques, mes terres sont plus fertiles et ma production plus stable, même pendant les périodes difficiles.",
+        author: "Pascal, agriculteur de la zone rurale de Bukavu"
+      },
+      type: "Agriculture durable",
+      location: "Zone rurale de Bukavu",
+      impactTypes: ["Agriculture durable", "Formation", "Environnement"],
+      year: "2023",
+      images: [
+        "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture1.jpg",
+        "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture2.jpg"
+      ]
+    },
+    {
       title: "Projet de Production de Briquettes Écologiques à Bukavu",
       description: "Ce projet vise à réduire la déforestation en proposant une alternative durable au charbon de bois. Nous avons mis en place une unité de production utilisant des déchets organiques et agricoles pour fabriquer des briquettes écologiques.",
       impacts: [
@@ -81,41 +103,6 @@ const Projects = () => {
       impactTypes: ["Agriculture durable", "Gestion des déchets"],
       year: "2022"
     },
-    {
-      title: "Projet d'Écotourisme : Circuits Verts dans la Région du Kivu",
-      description: "Organisation de visites guidées pour valoriser la biodiversité locale et les initiatives de conservation.",
-      impacts: [
-        "300 participants à nos circuits en 2023",
-        "Contribution à la conservation de plusieurs écosystèmes locaux",
-        "Appui à des communautés locales grâce à l'écotourisme"
-      ],
-      testimonial: {
-        quote: "Ces visites m'ont appris à respecter et protéger notre environnement.",
-        author: "Thierry, participant"
-      },
-      type: "Écotourisme",
-      location: "Kivu",
-      impactTypes: ["Conservation biodiversité", "Développement local"],
-      year: "2023"
-    },
-    {
-      title: "Programme d'Agriculture Régénératrice dans la Zone Rurale de Bukavu",
-      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale tout en réduisant l'impact environnemental dans les zones rurales.",
-      impacts: [
-        "Formation de 25 agriculteurs aux pratiques régénératrices",
-        "Augmentation de 40% des rendements agricoles",
-        "Réduction de 60% de l'utilisation d'intrants chimiques",
-        "Amélioration de la rétention d'eau dans les sols"
-      ],
-      testimonial: {
-        quote: "Grâce à ces nouvelles pratiques, mes terres sont plus fertiles et ma production plus stable, même pendant les périodes difficiles.",
-        author: "Pascal, agriculteur de la zone rurale de Bukavu"
-      },
-      type: "Agriculture durable",
-      location: "Zone rurale de Bukavu",
-      impactTypes: ["Agriculture durable", "Formation", "Environnement"],
-      year: "2023"
-    }
   ];
 
   // Group projects by type
