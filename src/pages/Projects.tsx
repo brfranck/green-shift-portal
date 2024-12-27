@@ -97,6 +97,42 @@ const Projects = () => {
       location: "Kivu",
       impactTypes: ["Conservation biodiversité", "Développement local"],
       year: "2023"
+    },
+    {
+      title: "Programme d'Agriculture Régénératrice à Bukavu",
+      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale tout en réduisant l'impact environnemental.",
+      impacts: [
+        "Formation de 25 agriculteurs aux pratiques régénératrices",
+        "Augmentation de 40% des rendements agricoles",
+        "Réduction de 60% de l'utilisation d'intrants chimiques",
+        "Amélioration de la rétention d'eau dans les sols"
+      ],
+      testimonial: {
+        quote: "Grâce à ces nouvelles pratiques, mes terres sont plus fertiles et ma production plus stable, même pendant les périodes difficiles.",
+        author: "Pascal, agriculteur à Bukavu"
+      },
+      type: "Agriculture durable",
+      location: "Bukavu",
+      impactTypes: ["Agriculture durable", "Formation", "Environnement"],
+      year: "2023"
+    },
+    {
+      title: "Projet de Maraîchage Urbain",
+      description: "Développement de jardins potagers urbains et formation aux techniques de culture biologique pour améliorer la sécurité alimentaire en ville.",
+      impacts: [
+        "Création de 15 jardins communautaires",
+        "Production de 2 tonnes de légumes par mois",
+        "Formation de 50 familles aux techniques de jardinage urbain",
+        "Réduction des dépenses alimentaires de 30% pour les participants"
+      ],
+      testimonial: {
+        quote: "Le jardin communautaire nous permet non seulement de manger sainement, mais aussi de créer du lien social dans notre quartier.",
+        author: "Marie, participante au projet"
+      },
+      type: "Agriculture durable",
+      location: "Bukavu",
+      impactTypes: ["Agriculture durable", "Sécurité alimentaire"],
+      year: "2023"
     }
   ];
 
