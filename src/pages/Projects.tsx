@@ -39,20 +39,24 @@ const Projects = () => {
     },
     {
       title: "Projet de Production de Briquettes Écologiques à Bukavu",
-      description: "Ce projet vise à réduire la déforestation en proposant une alternative durable au charbon de bois. Nous avons mis en place une unité de production utilisant des déchets organiques et agricoles pour fabriquer des briquettes écologiques.",
+      description: "Ce projet innovant vise à réduire la déforestation en proposant une alternative durable au charbon de bois traditionnel. Notre unité de production transforme les déchets organiques et agricoles en briquettes écologiques, offrant ainsi une solution énergétique plus propre et économique pour les ménages tout en créant des emplois locaux.",
       impacts: [
         "Production de 20 tonnes de briquettes par mois",
         "Économie de 500 arbres par an",
-        "Création de 15 emplois directs et 30 indirects"
+        "Création de 15 emplois directs et 30 indirects",
+        "Réduction des émissions de CO2 de 40% par rapport au charbon traditionnel"
       ],
       testimonial: {
-        quote: "Ces briquettes ont réduit mes dépenses pour le combustible et sont faciles à utiliser.",
-        author: "Jeanne, ménage à Bukavu"
+        quote: "Ces briquettes ont non seulement réduit mes dépenses en combustible, mais elles produisent aussi moins de fumée lors de la cuisson.",
+        author: "Jeanne, utilisatrice à Bukavu"
       },
       type: "Gestion des déchets",
       location: "Bukavu",
-      impactTypes: ["Réduction CO2", "Création d'emplois"],
-      year: "2023"
+      impactTypes: ["Réduction CO2", "Création d'emplois", "Innovation"],
+      year: "2023",
+      images: [
+        "/lovable-uploads/30560b85-1fb0-4a4c-b9bd-067cc800d48b.png"
+      ]
     },
     {
       title: "Installation de Systèmes Solaires pour Ménages et Institutions",
