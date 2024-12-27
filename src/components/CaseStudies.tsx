@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 export const CaseStudies = () => {
   const studies = [
     {
+      title: "Programme d'Agriculture Régénératrice dans la Zone Rurale de Bukavu, Sud-Kivu",
+      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale",
+      impact: "+40% de rendements agricoles",
+      image: "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture1.jpg"
+    },
+    {
       title: "Installation Solaire - Village de Kalonge",
       description: "Équipement de 50 ménages et une école primaire en systèmes solaires",
       impact: "-70% de dépenses en carburants fossiles",
@@ -14,12 +20,6 @@ export const CaseStudies = () => {
       description: "Transformation des déchets alimentaires en compost de haute qualité",
       impact: "30 agriculteurs bénéficiaires",
       image: "/lovable-uploads/photo-1501286353178-1ec881214838"
-    },
-    {
-      title: "Réduction Énergétique - Entreprise A",
-      description: "Réduction de 40% de la consommation énergétique",
-      impact: "-150 tonnes CO2/an",
-      image: "/lovable-uploads/photo-1581091226825-a6a2a5aee158"
     }
   ];
 
