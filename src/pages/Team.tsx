@@ -13,7 +13,7 @@ const Team = () => {
       name: "Elvis Muhemeri",
       role: "Directeur de la Production",
       bio: "Ingénieur en Agronomie, il a travaillé dans des unités de transformation agro-industrielle au dans des pays de Grand-Lacs d'Afrique.",
-      image: "/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg"
+      image: "/lovable-uploads/bd1dfe6d-d8aa-4612-9779-e240746ff61a.png"
     },
     {
       name: "Yvette Mwinja",
