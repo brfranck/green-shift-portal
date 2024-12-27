@@ -14,7 +14,7 @@ const blogPosts = [
     title: "5 astuces pour adopter un style de vie écoresponsable",
     excerpt: "Du tri des déchets à l'utilisation de produits locaux, ces gestes simples peuvent faire une grande différence pour la planète et votre quotidien.",
     category: "Conseils Pratiques",
-    imageUrl: "/placeholder.svg"
+    imageUrl: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
   },
   {
     id: 3,
