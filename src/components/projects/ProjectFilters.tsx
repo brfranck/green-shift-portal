@@ -1,6 +1,12 @@
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 interface ProjectFiltersProps {
   projectTypes: string[];
@@ -37,38 +43,36 @@ export const ProjectFilters = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
           <h3 className="font-medium mb-2">Type de projet</h3>
-          <RadioGroup value={selectedType || ""} onValueChange={setSelectedType}>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <RadioGroupItem value="" id="type-all" />
-                <Label className="ml-2" htmlFor="type-all">Tous</Label>
-              </div>
+          <Select value={selectedType || ""} onValueChange={setSelectedType}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Tous les types" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">Tous</SelectItem>
               {projectTypes.map(type => (
-                <div key={type} className="flex items-center">
-                  <RadioGroupItem value={type} id={`type-${type}`} />
-                  <Label className="ml-2" htmlFor={`type-${type}`}>{type}</Label>
-                </div>
+                <SelectItem key={type} value={type}>
+                  {type}
+                </SelectItem>
               ))}
-            </div>
-          </RadioGroup>
+            </SelectContent>
+          </Select>
         </div>
 
         <div>
           <h3 className="font-medium mb-2">Localisation</h3>
-          <RadioGroup value={selectedLocation || ""} onValueChange={setSelectedLocation}>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <RadioGroupItem value="" id="location-all" />
-                <Label className="ml-2" htmlFor="location-all">Toutes</Label>
-              </div>
+          <Select value={selectedLocation || ""} onValueChange={setSelectedLocation}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Toutes les localisations" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">Toutes</SelectItem>
               {locations.map(location => (
-                <div key={location} className="flex items-center">
-                  <RadioGroupItem value={location} id={`location-${location}`} />
-                  <Label className="ml-2" htmlFor={`location-${location}`}>{location}</Label>
-                </div>
+                <SelectItem key={location} value={location}>
+                  {location}
+                </SelectItem>
               ))}
-            </div>
-          </RadioGroup>
+            </SelectContent>
+          </Select>
         </div>
 
         <div>
@@ -89,20 +93,19 @@ export const ProjectFilters = ({
 
         <div>
           <h3 className="font-medium mb-2">Année</h3>
-          <RadioGroup value={selectedYear || ""} onValueChange={setSelectedYear}>
-            <div className="space-y-2">
-              <div className="flex items-center">
-                <RadioGroupItem value="" id="year-all" />
-                <Label className="ml-2" htmlFor="year-all">Toutes</Label>
-              </div>
+          <Select value={selectedYear || ""} onValueChange={setSelectedYear}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Toutes les années" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">Toutes</SelectItem>
               {years.map(year => (
-                <div key={year} className="flex items-center">
-                  <RadioGroupItem value={year} id={`year-${year}`} />
-                  <Label className="ml-2" htmlFor={`year-${year}`}>{year}</Label>
-                </div>
+                <SelectItem key={year} value={year}>
+                  {year}
+                </SelectItem>
               ))}
-            </div>
-          </RadioGroup>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>
