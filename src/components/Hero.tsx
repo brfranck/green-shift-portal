@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -24,10 +25,13 @@ export const Hero = () => {
           créant un impact durable pour les générations futures.
         </p>
         <Button
+          asChild
           className="group bg-secondary text-primary hover:bg-secondary/90 transition-all duration-300"
         >
-          Découvrez Nos Solutions
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          <Link to="/services">
+            Découvrez Nos Solutions
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </Button>
       </div>
     </section>
