@@ -4,6 +4,7 @@ import { Impact } from "@/components/Impact";
 import { Contact } from "@/components/Contact";
 import { Testimonials } from "@/components/Testimonials";
 import { SocialProof } from "@/components/SocialProof";
+import { Support } from "@/components/Support";
 import { motion } from "framer-motion";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <Impact />
       <Testimonials />
       <SocialProof />
+      <Support />
       <Contact />
     </motion.main>
   );
