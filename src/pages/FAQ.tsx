@@ -41,7 +41,7 @@ const FAQ = () => {
     },
     {
       question: "Quels sont les moyens de vous contacter ?",
-      answer: "• Email : contact@greenshift-rdc.com\n• Téléphone : +243 XXX XXX XXX\n• Adresse : [Adresse physique]\n\nVous pouvez aussi remplir le formulaire de contact sur notre site web."
+      answer: "• Email : contact@greenshift-rdc.com\n• Téléphone : +243 816 937 859\n• Adresse : [Adresse physique]\n\nVous pouvez aussi remplir le formulaire de contact sur notre site web."
     }
   ];
 
