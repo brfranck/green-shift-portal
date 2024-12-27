@@ -47,6 +47,14 @@ const FAQ = () => {
 
   return (
     <div className="container mx-auto py-12 px-4">
+      <div className="flex flex-col items-center mb-8">
+        <img 
+          src="/lovable-uploads/624d01f0-e3c6-4325-a571-726b16159595.png"
+          alt="GreenShift Logo"
+          className="w-32 h-32 mb-6"
+        />
+      </div>
+
       <Card className="mb-8">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-primary">
