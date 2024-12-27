@@ -2,14 +2,12 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ProjectCard } from "@/components/projects/ProjectCard";
-import { exportToWord, exportToPDF } from "@/utils/exportProjects";
-import { DownloadIcon } from "lucide-react";
+import { ChevronDownIcon } from "lucide-react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -102,13 +100,14 @@ const Projects = () => {
     }
   ];
 
-  const handleExport = (format: 'pdf' | 'word') => {
-    if (format === 'pdf') {
-      exportToPDF(projects);
-    } else {
-      exportToWord(projects);
+  // Group projects by type
+  const projectsByType = projects.reduce((acc, project) => {
+    if (!acc[project.type]) {
+      acc[project.type] = [];
     }
-  };
+    acc[project.type].push(project);
+    return acc;
+  }, {} as Record<string, typeof projects>);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -135,33 +134,26 @@ const Projects = () => {
         </p>
       </motion.div>
 
-      <div className="flex justify-end mb-4">
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="gap-2">
-              <DownloadIcon className="h-4 w-4" />
-              Télécharger la liste
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem onClick={() => handleExport('pdf')}>
-              Format PDF
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => handleExport('word')}>
-              Format Word
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        className="space-y-6"
       >
-        {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+        {Object.entries(projectsByType).map(([type, typeProjects]) => (
+          <Collapsible key={type} className="bg-card rounded-lg shadow-sm">
+            <CollapsibleTrigger className="w-full flex items-center justify-between p-4 hover:bg-accent/50 rounded-lg transition-colors">
+              <h2 className="text-2xl font-semibold text-primary">{type}</h2>
+              <ChevronDownIcon className="h-6 w-6 text-muted-foreground transition-transform duration-200" />
+            </CollapsibleTrigger>
+            <CollapsibleContent className="p-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {typeProjects.map((project, index) => (
+                  <ProjectCard key={index} project={project} />
+                ))}
+              </div>
+            </CollapsibleContent>
+          </Collapsible>
         ))}
       </motion.div>
 
