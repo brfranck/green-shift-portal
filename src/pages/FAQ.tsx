@@ -1,5 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { motion } from "framer-motion";
 
 const FAQ = () => {
   const faqs = [
@@ -45,17 +46,43 @@ const FAQ = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="container mx-auto py-12 px-4">
-      <div className="flex flex-col items-center mb-8">
+    <div className="container mx-auto py-12 px-4 min-h-screen">
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center mb-8"
+      >
         <img 
           src="/lovable-uploads/06537a1b-ce0d-4e35-b37c-a3f6eb3289ea.png"
           alt="GreenShift Logo"
           className="w-64 h-auto mb-6"
         />
-      </div>
+      </motion.div>
 
-      <Card className="mb-8">
+      <Card className="mb-8 bg-white/80 backdrop-blur-sm shadow-lg">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center text-primary">
             Questions Fréquemment Posées
@@ -68,28 +95,44 @@ const FAQ = () => {
         </CardContent>
       </Card>
 
-      <Accordion type="single" collapsible className="space-y-4">
-        {faqs.map((faq, index) => (
-          <AccordionItem
-            key={index}
-            value={`item-${index}`}
-            className="bg-white rounded-lg shadow-sm border"
-          >
-            <AccordionTrigger className="px-6 hover:no-underline">
-              <span className="text-left font-medium">{faq.question}</span>
-            </AccordionTrigger>
-            <AccordionContent className="px-6 pb-4 whitespace-pre-line">
-              {faq.answer}
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="space-y-4"
+      >
+        <Accordion type="single" collapsible className="space-y-4">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+            >
+              <AccordionItem
+                value={`item-${index}`}
+                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border overflow-hidden"
+              >
+                <AccordionTrigger className="px-6 hover:no-underline">
+                  <span className="text-left font-medium text-primary">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-4 whitespace-pre-line text-muted-foreground">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
+          ))}
+        </Accordion>
+      </motion.div>
 
-      <div className="text-center mt-8">
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="text-center mt-12"
+      >
         <p className="text-muted-foreground">
-          Si vous avez des questions supplémentaires, contactez-nous directement !
+          Si vous avez des questions supplémentaires, n'hésitez pas à nous contacter directement !
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
