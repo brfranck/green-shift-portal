@@ -17,8 +17,12 @@ export const Navbar = () => {
     <nav className="bg-white/80 backdrop-blur-sm sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="font-bold text-xl text-primary">
-            GreenShift
+          <Link to="/" className="flex items-center">
+            <img
+              src="/lovable-uploads/d389ccd5-6101-4a7a-a7c1-2e975fcf92e9.png"
+              alt="GreenShift Logo"
+              className="h-12 w-auto"
+            />
           </Link>
           <div className="hidden md:flex space-x-4">
             {links.map((link) => (
