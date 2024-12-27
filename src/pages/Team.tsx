@@ -11,7 +11,7 @@ const teamMembers = [
       "Initie des partenariats stratégiques avec des organisations locales et internationales.",
       "Met en avant les solutions innovantes pour répondre aux défis liés au développement durable en RDC."
     ],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png",
     initials: "PA"
   },
   {
