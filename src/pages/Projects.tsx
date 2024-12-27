@@ -32,6 +32,7 @@ const Projects = () => {
       year: "2023",
       images: [
         "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture1.jpg",
+        "/lovable-uploads/82d48035-4d8b-4ce6-962b-e3c00a01a753.png",
         "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/WhatsApp%20Image%202024-12-27%20at%2018.56.43%20(1).jpeg",
         "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/WhatsApp%20Image%202024-12-27%20at%2018.56.45.jpeg"
       ]
