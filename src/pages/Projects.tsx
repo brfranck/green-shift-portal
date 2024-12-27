@@ -14,8 +14,8 @@ const Projects = () => {
   
   const projects = [
     {
-      title: "Programme d'Agriculture Régénératrice dans la Zone Rurale de Bukavu",
-      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale tout en réduisant l'impact environnemental dans les zones rurales.",
+      title: "Programme d'Agriculture Régénératrice dans la Zone Rurale de Bukavu, Sud-Kivu",
+      description: "Initiative visant à promouvoir des pratiques agricoles durables et régénératrices pour améliorer la qualité des sols et la production alimentaire locale dans la province du Sud-Kivu, dont Bukavu est le chef-lieu. Ce programme met l'accent sur la réduction de l'impact environnemental tout en augmentant la productivité agricole.",
       impacts: [
         "Formation de 25 agriculteurs aux pratiques régénératrices",
         "Augmentation de 40% des rendements agricoles",
@@ -27,13 +27,14 @@ const Projects = () => {
         author: "Pascal, agriculteur de la zone rurale de Bukavu"
       },
       type: "Agriculture durable",
-      location: "Zone rurale de Bukavu",
+      location: "Sud-Kivu",
       impactTypes: ["Agriculture durable", "Formation", "Environnement"],
       year: "2023",
       images: [
         "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture1.jpg",
         "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/agriculture2.jpg",
-        "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/WhatsApp%20Image%202024-12-27%20at%2018.56.43%20(1).jpeg"
+        "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/WhatsApp%20Image%202024-12-27%20at%2018.56.43%20(1).jpeg",
+        "https://fgsrxajibgvzeylxhxsy.supabase.co/storage/v1/object/public/project_images/WhatsApp%20Image%202024-12-27%20at%2018.56.45.jpeg"
       ]
     },
     {
