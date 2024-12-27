@@ -132,7 +132,7 @@ const FAQ = () => {
             >
               <AccordionItem
                 value={`item-${index}`}
-                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border overflow-hidden transition-all duration-300 ease-in-out hover:shadow-md"
+                className="bg-white/80 backdrop-blur-sm rounded-lg shadow-sm border overflow-hidden transition-all duration-300 ease-in-out hover:shadow-md data-[state=open]:shadow-md"
               >
                 <AccordionTrigger className="px-4 md:px-6 py-4 hover:no-underline group">
                   <span className="text-left font-medium text-primary group-hover:text-primary/80 transition-colors">
