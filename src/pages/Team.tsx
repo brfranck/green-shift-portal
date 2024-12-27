@@ -26,6 +26,12 @@ const Team = () => {
       role: "Responsable de l'Innovation",
       bio: "Diplômé en sciences de l'environnement, il apporte son expertise dans l'optimisation des procédés de valorisation des déchets agricoles.",
       image: "/lovable-uploads/9e274ff4-2898-4570-92ba-21c33d085114.png"
+    },
+    {
+      name: "Elvis Muhemeri",
+      role: "Responsable des Relations Communautaires",
+      bio: "Expert en développement communautaire avec une formation en sciences sociales, spécialisé dans la mise en œuvre de programmes environnementaux et la mobilisation communautaire.",
+      image: "/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg"
     }
   ];
 
