@@ -3,8 +3,8 @@ import { Leaf, Shield, Globe } from "lucide-react";
 const values = [
   {
     icon: Leaf,
-    title: "Mutualisation des Ressources",
-    description: "En tant que GIE, nous unissons nos forces pour maximiser notre impact environnemental collectif.",
+    title: "Innovation Collaborative",
+    description: "Nous unissons nos forces pour maximiser notre impact environnemental collectif.",
   },
   {
     icon: Shield,
@@ -14,7 +14,7 @@ const values = [
   {
     icon: Globe,
     title: "Impact Collectif",
-    description: "Notre structure de GIE nous permet d'agir à l'échelle mondiale avec une efficacité accrue.",
+    description: "Notre approche collaborative nous permet d'agir à l'échelle mondiale avec une efficacité accrue.",
   },
 ];
 
@@ -25,11 +25,11 @@ export const About = () => {
         <div className="text-center mb-16 animate-fade-up">
           <span className="text-sm font-medium text-primary-light">À Propos</span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">
-            Notre Mission & Notre Structure
+            Notre Mission & Notre Vision
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            En tant que Groupement d'Intérêt Économique, nous rassemblons des entreprises 
-            engagées pour amplifier notre impact positif sur l'environnement.
+            Nous rassemblons des entreprises engagées pour amplifier notre impact 
+            positif sur l'environnement et construire un avenir plus durable.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
