@@ -14,15 +14,15 @@ export const Hero = () => {
       </div>
       <div className="relative container mx-auto text-center z-10 animate-fade-up">
         <span className="inline-block px-4 py-1 mb-6 text-sm font-medium rounded-full bg-white/10 text-secondary backdrop-blur-sm">
-          Bienvenue chez GreenShift
+          Ensemble pour un Avenir Durable
         </span>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-secondary">
           Façonner un Avenir Durable
         </h1>
         <p className="text-lg md:text-xl text-secondary/90 max-w-2xl mx-auto mb-8">
-          Nous unissons nos forces et notre expertise pour révolutionner l'approche 
-          des entreprises en matière de durabilité, créant un impact positif pour 
-          les générations futures.
+          Notre mission est de créer un impact positif durable pour les générations futures 
+          à travers des solutions innovantes et écologiques, en collaboration avec nos 
+          communautés locales.
         </p>
         <Button
           asChild

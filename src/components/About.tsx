@@ -3,18 +3,18 @@ import { Leaf, Shield, Globe } from "lucide-react";
 const values = [
   {
     icon: Leaf,
-    title: "Innovation Collaborative",
-    description: "Nous unissons nos forces pour maximiser notre impact environnemental collectif.",
+    title: "Innovation Durable",
+    description: "Nous développons des solutions écologiques innovantes pour répondre aux défis environnementaux de notre communauté.",
   },
   {
     icon: Shield,
-    title: "Protection Environnementale",
-    description: "Ensemble, nous développons des solutions innovantes pour préserver les ressources de notre planète.",
+    title: "Impact Social",
+    description: "Notre engagement est de créer un changement positif durable tout en préservant les ressources naturelles pour les générations futures.",
   },
   {
     icon: Globe,
-    title: "Impact Collectif",
-    description: "Notre approche collaborative nous permet d'agir à l'échelle mondiale avec une efficacité accrue.",
+    title: "Action Collective",
+    description: "Nous mobilisons notre communauté et nos partenaires pour amplifier notre impact environnemental et social.",
   },
 ];
 
@@ -23,13 +23,14 @@ export const About = () => {
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <span className="text-sm font-medium text-primary-light">À Propos</span>
+          <span className="text-sm font-medium text-primary-light">Notre Mission</span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">
-            Notre Mission & Notre Vision
+            Notre Vision & Nos Valeurs
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Nous rassemblons des entreprises engagées pour amplifier notre impact 
-            positif sur l'environnement et construire un avenir plus durable.
+            Depuis 2022, nous œuvrons pour un avenir plus durable en développant des 
+            solutions écologiques innovantes et en mobilisant notre communauté pour 
+            un impact positif durable.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
