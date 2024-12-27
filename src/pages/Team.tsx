@@ -25,7 +25,7 @@ const Team = () => {
       name: "Salomon Lubunga",
       role: "Responsable de l'Innovation",
       bio: "Diplômé en sciences de l'environnement, il apporte son expertise dans l'optimisation des procédés de valorisation des déchets agricoles.",
-      image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
+      image: "/lovable-uploads/9e274ff4-2898-4570-92ba-21c33d085114.png"
     }
   ];
 
