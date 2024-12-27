@@ -1,108 +1,88 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ScrollArea } from "@/components/ui/scroll-area";
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Les briquettes écologiques : Une solution pour préserver nos forêts",
-    excerpt: "Face à la déforestation massive en RDC, les briquettes écologiques apparaissent comme une alternative durable au charbon de bois. Découvrez comment GreenShift contribue à ce changement.",
-    category: "Technologies Vertes",
-    imageUrl: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
-  },
-  {
-    id: 2,
-    title: "5 astuces pour adopter un style de vie écoresponsable",
-    excerpt: "Du tri des déchets à l'utilisation de produits locaux, ces gestes simples peuvent faire une grande différence pour la planète et votre quotidien.",
-    category: "Conseils Pratiques",
-    imageUrl: "/lovable-uploads/1ccc1e5c-baf1-40af-8b32-d0a0099d5a1a.png"
-  },
-  {
-    id: 3,
-    title: "L'impact de l'énergie solaire sur les communautés rurales en RDC",
-    excerpt: "Avec l'installation de panneaux solaires, les villages isolés ont accès à une énergie propre et fiable. Retour sur nos projets d'énergie renouvelable.",
-    category: "Actualités de GreenShift",
-    imageUrl: "/placeholder.svg"
-  },
-  {
-    id: 4,
-    title: "Composter chez soi : un guide pratique",
-    excerpt: "Le compostage domestique transforme vos déchets organiques en fertilisant naturel. Voici comment vous pouvez commencer aujourd'hui !",
-    category: "Conseils Pratiques",
-    imageUrl: "/placeholder.svg"
-  }
-];
-
-const categories = [
-  "Actualités de GreenShift",
-  "Conseils Pratiques",
-  "Technologies Vertes",
-  "Histoires Inspirantes",
-  "Partenariats et Opportunités"
-];
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Blog = () => {
+  const articles = [
+    {
+      title: "L'Innovation dans le Recyclage",
+      excerpt: "Découvrez les dernières technologies en matière de recyclage...",
+      date: "15 Mars 2024",
+      image: "/lovable-uploads/1ccc1e5c-baf1-40af-8b32-d0a0099d5a1a.png"
+    },
+    {
+      title: "Énergies Renouvelables",
+      excerpt: "Comment les énergies renouvelables transforment notre futur...",
+      date: "10 Mars 2024",
+      image: "/lovable-uploads/2b1fcc8a-6324-40f5-bc24-f826f5844c98.png"
+    },
+    {
+      title: "Développement Durable",
+      excerpt: "Les meilleures pratiques pour un développement durable...",
+      date: "5 Mars 2024",
+      image: "/lovable-uploads/624d01f0-e3c6-4325-a571-726b16159595.png"
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="text-center mb-12 animate-fade-up">
-        <h1 className="text-4xl font-bold text-primary mb-4">Blog GreenShift</h1>
-        <p className="text-lg text-gray-600">
-          Partagez nos idées et actualités sur le développement durable
+    <div className="container mx-auto py-12 px-4 min-h-screen">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h1 className="text-4xl font-bold text-primary mb-4">Notre Blog</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Actualités et insights sur le développement durable
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Sidebar with categories */}
-        <div className="lg:col-span-1">
-          <Card className="sticky top-4">
-            <CardHeader>
-              <CardTitle>Catégories</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ScrollArea className="h-[300px]">
-                <ul className="space-y-2">
-                  {categories.map((category) => (
-                    <li
-                      key={category}
-                      className="cursor-pointer hover:text-primary transition-colors p-2 rounded-lg hover:bg-secondary"
-                    >
-                      {category}
-                    </li>
-                  ))}
-                </ul>
-              </ScrollArea>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main content - Blog posts */}
-        <div className="lg:col-span-3 space-y-8">
-          {blogPosts.map((post) => (
-            <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-up">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="aspect-video relative">
-                  <img
-                    src={post.imageUrl}
-                    alt={post.title}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="p-6">
-                  <span className="text-sm text-primary-light mb-2 inline-block">
-                    {post.category}
-                  </span>
-                  <h2 className="text-2xl font-semibold mb-3 text-primary">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600">{post.excerpt}</p>
-                  <button className="mt-4 text-primary hover:text-primary-light transition-colors">
-                    Lire la suite →
-                  </button>
-                </div>
-              </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {articles.map((article, index) => (
+          <motion.div key={index} variants={itemVariants}>
+            <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src={article.image}
+                alt={article.title}
+                className="w-full h-48 object-cover rounded-t-lg"
+              />
+              <CardHeader>
+                <CardTitle className="text-xl text-primary">{article.title}</CardTitle>
+                <p className="text-sm text-muted-foreground">{article.date}</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{article.excerpt}</p>
+              </CardContent>
             </Card>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };

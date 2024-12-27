@@ -1,139 +1,80 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-
-const services = [
-  {
-    title: "Gestion des Déchets et Valorisation",
-    description: "Recyclage, transformation et sensibilisation pour une gestion efficace des déchets.",
-    details: [
-      "Collecte, tri et transformation des déchets plastiques, organiques et métalliques",
-      "Fabrication de briquettes écologiques et compost",
-      "Formation des communautés au tri et à la gestion des déchets"
-    ],
-    icon: "🔄"
-  },
-  {
-    title: "Solutions en Énergies Renouvelables",
-    description: "Installation de systèmes solaires et solutions énergétiques durables.",
-    details: [
-      "Installation de panneaux solaires pour ménages et entreprises",
-      "Maintenance et suivi des systèmes",
-      "Projets de biomasse et biogaz"
-    ],
-    icon: "☀️"
-  },
-  {
-    title: "Agriculture Durable",
-    description: "Formation et accompagnement en techniques agricoles écologiques.",
-    details: [
-      "Techniques d'agriculture écologique",
-      "Permaculture et agroforesterie",
-      "Production de compost biologique"
-    ],
-    icon: "🌱"
-  },
-  {
-    title: "Sensibilisation et Éducation",
-    description: "Programmes de formation et campagnes de sensibilisation environnementale.",
-    details: [
-      "Éducation environnementale pour écoles et entreprises",
-      "Campagnes de communication",
-      "Promotion des pratiques durables"
-    ],
-    icon: "📚"
-  },
-  {
-    title: "Conseil en Développement Durable",
-    description: "Audits environnementaux et assistance technique pour les entreprises.",
-    details: [
-      "Évaluation des pratiques environnementales",
-      "Recommandations d'amélioration",
-      "Accompagnement vers les certifications"
-    ],
-    icon: "📋"
-  },
-  {
-    title: "Aménagement et Urbanisme Durable",
-    description: "Conception d'espaces verts et d'infrastructures durables.",
-    details: [
-      "Conception d'espaces verts",
-      "Infrastructures durables",
-      "Solutions de drainage écologique"
-    ],
-    icon: "🏗️"
-  },
-  {
-    title: "Produits Durables",
-    description: "Vente de produits écologiques et durables.",
-    details: [
-      "Briquettes écologiques",
-      "Composts",
-      "Kits solaires et accessoires recyclés"
-    ],
-    icon: "🛍️"
-  },
-  {
-    title: "Tourisme et Restauration Durables",
-    description: "Expériences écotouristiques pour découvrir la biodiversité locale.",
-    details: [
-      "Circuits d'écotourisme",
-      "Découverte de la biodiversité",
-      "Initiatives vertes locales"
-    ],
-    icon: "🏞️"
-  },
-  {
-    title: "Soutien aux Initiatives Locales",
-    description: "Microcrédits et soutien aux projets communautaires écologiques.",
-    details: [
-      "Financements verts",
-      "Microcrédits écologiques",
-      "Soutien technique aux projets"
-    ],
-    icon: "🤝"
-  }
-];
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Services = () => {
+  const services = [
+    {
+      title: "Conseil en Développement Durable",
+      description: "Accompagnement stratégique pour une transition écologique réussie.",
+    },
+    {
+      title: "Audits Environnementaux",
+      description: "Évaluation complète de votre impact environnemental.",
+    },
+    {
+      title: "Solutions d'Énergie Renouvelable",
+      description: "Implémentation de solutions énergétiques durables.",
+    },
+    {
+      title: "Gestion des Déchets",
+      description: "Optimisation de votre cycle de gestion des déchets.",
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-12 px-4 min-h-screen">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6 }}
         className="text-center mb-12"
       >
         <h1 className="text-4xl font-bold text-primary mb-4">Nos Services</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Découvrez notre gamme complète de services dédiés au développement durable en RDC
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Des solutions innovantes pour un avenir durable
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
         {services.map((service, index) => (
-          <motion.div
-            key={service.title}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+          <motion.div key={index} variants={itemVariants}>
+            <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <div className="text-4xl mb-4">{service.icon}</div>
                 <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-gray-600">
-                  {service.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
+                <p className="text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };

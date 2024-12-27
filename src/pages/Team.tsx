@@ -1,113 +1,88 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const teamMembers = [
-  {
-    name: "Patient Asifiwe",
-    role: "Directeur Général et Fondateur",
-    profile: "Diplômé en Communication des Entreprises, Patient est un expert reconnu dans le développement de projets environnementaux et sociaux.",
-    responsibilities: [
-      "Supervise la stratégie globale de l'entreprise.",
-      "Initie des partenariats stratégiques avec des organisations locales et internationales.",
-      "Met en avant les solutions innovantes pour répondre aux défis liés au développement durable en RDC."
-    ],
-    imageUrl: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png",
-    initials: "PA"
-  },
-  {
-    name: "Yvette Mwinja",
-    role: "Directrice de la Production",
-    profile: "Ingénieure en Agronomie avec une expérience significative dans des unités de transformation agro-industrielle dans les pays des Grands Lacs d'Afrique.",
-    responsibilities: [
-      "Supervise les opérations de production des briquettes écologiques.",
-      "Optimise les processus de transformation des matières premières pour garantir la qualité des produits.",
-      "Implémente des pratiques agricoles et industrielles durables."
-    ],
-    imageUrl: "/placeholder.svg",
-    initials: "YM"
-  },
-  {
-    name: "Alice Mugoli",
-    role: "Directrice Commerciale",
-    profile: "Diplômée en Marketing, Alice excelle dans la commercialisation de produits durables pour les ménages et les entreprises.",
-    responsibilities: [
-      "Développe et met en œuvre des stratégies commerciales pour promouvoir les produits de GreenShift.",
-      "Crée des campagnes de sensibilisation pour encourager l'adoption de solutions durables.",
-      "Maintient des relations solides avec les clients et partenaires stratégiques."
-    ],
-    imageUrl: "/placeholder.svg",
-    initials: "AM"
-  },
-  {
-    name: "Salomon Lubunga",
-    role: "Responsable de l'Innovation",
-    profile: "Diplômé en sciences de l'environnement, Salomon est spécialisé dans l'optimisation des procédés de valorisation des déchets agricoles.",
-    responsibilities: [
-      "Conduit des projets d'innovation pour améliorer les technologies de production.",
-      "Recherche et développe de nouvelles applications pour les déchets recyclés.",
-      "Collabore avec des experts pour intégrer des solutions technologiques avancées."
-    ],
-    imageUrl: "/placeholder.svg",
-    initials: "SL"
-  }
-];
-
 const Team = () => {
+  const team = [
+    {
+      name: "Sophie Martin",
+      role: "Directrice Générale",
+      bio: "15 ans d'expérience en développement durable",
+      image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
+    },
+    {
+      name: "Marc Dubois",
+      role: "Responsable Technique",
+      bio: "Expert en solutions d'énergie renouvelable",
+      image: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
+    },
+    {
+      name: "Julie Lefebvre",
+      role: "Consultante Senior",
+      bio: "Spécialiste en stratégie environnementale",
+      image: "/lovable-uploads/624d01f0-e3c6-4325-a571-726b16159595.png"
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="text-center mb-16 animate-fade-up">
-        <h1 className="text-4xl font-bold text-primary mb-4">Notre Équipe : Les Leaders de GreenShift</h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Chez GreenShift, notre équipe dirigeante combine expertise, expérience et passion pour mener des initiatives 
-          innovantes en matière de développement durable. Voici les leaders qui guident notre mission pour un avenir 
-          plus vert en RDC :
+    <div className="container mx-auto py-12 px-4 min-h-screen">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-12"
+      >
+        <h1 className="text-4xl font-bold text-primary mb-4">Notre Équipe</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          Des experts passionnés par le développement durable
         </p>
-      </div>
+      </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {teamMembers.map((member, index) => (
-          <Card 
-            key={member.name}
-            className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-up"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            <CardHeader className="flex flex-row items-center gap-4 pb-4">
-              <Avatar className="h-16 w-16">
-                <AvatarImage src={member.imageUrl} alt={member.name} />
-                <AvatarFallback className="bg-primary/10 text-primary">
-                  {member.initials}
-                </AvatarFallback>
-              </Avatar>
-              <div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {team.map((member, index) => (
+          <motion.div key={index} variants={itemVariants}>
+            <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-64 object-cover rounded-t-lg"
+              />
+              <CardHeader>
                 <CardTitle className="text-xl text-primary">{member.name}</CardTitle>
-                <p className="text-sm text-primary-light font-medium">{member.role}</p>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="font-semibold mb-2">Profil :</h3>
-                  <p className="text-gray-600">{member.profile}</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Rôle chez GreenShift :</h3>
-                  <ul className="list-disc list-inside text-gray-600 space-y-2">
-                    {member.responsibilities.map((responsibility, idx) => (
-                      <li key={idx}>{responsibility}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+                <p className="text-sm font-medium text-primary-light">{member.role}</p>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{member.bio}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
-      </div>
-
-      <div className="text-center mt-16 animate-fade-up">
-        <p className="text-lg text-gray-600 italic">
-          Ensemble, nous transformons les défis en opportunités et travaillons chaque jour pour un avenir plus écologique et équitable.
-        </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
