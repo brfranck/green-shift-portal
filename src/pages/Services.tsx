@@ -10,7 +10,7 @@ const Services = () => {
   const services = [
     {
       title: "Mutualisation des Ressources",
-      description: "En tant que GIE, nous permettons à nos membres de partager leurs ressources et expertises pour maximiser l'impact environnemental.",
+      description: "En tant que groupement, nous permettons à nos membres de partager leurs ressources et expertises pour maximiser l'impact environnemental.",
       icon: Users
     },
     {
@@ -61,7 +61,7 @@ const Services = () => {
       >
         <h1 className="text-4xl font-bold text-primary mb-4">Nos Services</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          En tant que Groupement d'Intérêt Économique (GIE), nous mutualisons les ressources et expertises de nos membres pour offrir des solutions durables innovantes.
+          Notre structure de groupement nous permet de mutualiser les ressources et expertises de nos membres pour offrir des solutions durables innovantes.
         </p>
       </motion.div>
 
