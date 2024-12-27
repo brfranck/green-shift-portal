@@ -109,6 +109,24 @@ const Projects = () => {
       impactTypes: ["Agriculture durable", "Gestion des déchets"],
       year: "2022"
     },
+    {
+      title: "Programme de Gestion des Eaux Pluviales et Prévention des Inondations à Bukavu",
+      description: "Initiative intégrée visant à améliorer la gestion des eaux pluviales et à réduire les risques d'inondation dans la ville de Bukavu. Notre programme comprend le débouchage systématique des caniveaux, la réorientation des flux d'eau non canalisés, et la mise en place d'infrastructures de drainage durables pour protéger les zones vulnérables.",
+      impacts: [
+        "Réduction significative des zones inondables dans les quartiers à risque",
+        "Amélioration du système de drainage urbain",
+        "Protection de plus de 1000 foyers contre les inondations",
+        "Création d'emplois locaux pour l'entretien des infrastructures"
+      ],
+      testimonial: {
+        quote: "Depuis les travaux d'aménagement, notre quartier n'a plus connu d'inondation majeure. C'est un véritable soulagement pour toute la communauté.",
+        author: "Emmanuel, résident du quartier Nyalukemba"
+      },
+      type: "Infrastructure urbaine",
+      location: "Bukavu",
+      impactTypes: ["Prévention des risques", "Développement urbain", "Protection environnementale"],
+      year: "2023"
+    },
   ];
 
   // Group projects by type
