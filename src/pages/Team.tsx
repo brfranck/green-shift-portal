@@ -5,22 +5,28 @@ const Team = () => {
   const team = [
     {
       name: "Patient Asifiwe",
-      role: "Directeur Général",
-      bio: "Leader visionnaire dans le développement durable",
+      role: "Directeur Général et Fondateur",
+      bio: "Diplômé en Communication des Entreprises, expert dans le développement de projets environnementaux et sociaux en République Démocratique du Congo.",
       image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
     },
     {
-      name: "Marc Dubois",
-      role: "Responsable Technique",
-      bio: "Expert en solutions d'énergie renouvelable",
+      name: "Yvette Mwinja",
+      role: "Directrice de la Production",
+      bio: "Ingénieure en Agronomie, elle a travaillé dans des unités de transformation agro-industrielle au dans des pays de Grand-Lacs d'Afrique.",
       image: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
     },
     {
-      name: "Julie Lefebvre",
-      role: "Consultante Senior",
-      bio: "Spécialiste en stratégie environnementale",
+      name: "Alice Mugoli",
+      role: "Directrice Commerciale",
+      bio: "Titulaire d'un diplôme en Marketing, elle a développé des compétences dans la commercialisation de produits durables auprès des ménages et des entreprises.",
       image: "/lovable-uploads/624d01f0-e3c6-4325-a571-726b16159595.png"
     },
+    {
+      name: "Salomon Lubunga",
+      role: "Responsable de l'Innovation",
+      bio: "Diplômé en sciences de l'environnement, il apporte son expertise dans l'optimisation des procédés de valorisation des déchets agricoles.",
+      image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
+    }
   ];
 
   const containerVariants = {
