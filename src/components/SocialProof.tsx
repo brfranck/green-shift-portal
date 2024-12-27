@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Facebook, Twitter, LinkedIn, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 
 export const SocialProof = () => {
   const socialLinks = [
     { icon: Facebook, href: "https://facebook.com/greenshift", label: "Facebook" },
     { icon: Twitter, href: "https://twitter.com/greenshift", label: "Twitter" },
-    { icon: LinkedIn, href: "https://linkedin.com/company/greenshift", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://linkedin.com/company/greenshift", label: "LinkedIn" },
     { icon: Instagram, href: "https://instagram.com/greenshift", label: "Instagram" }
   ];
 

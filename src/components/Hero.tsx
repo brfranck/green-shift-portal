@@ -19,7 +19,8 @@ export const Hero = () => {
           Façonner un Avenir Durable
         </h1>
         <p className="text-lg md:text-xl text-secondary/90 max-w-2xl mx-auto mb-8">
-          Nous révolutionnons l'approche des entreprises en matière de durabilité,
+          En tant que Groupement d'Intérêt Économique (GIE), nous mutualisons nos ressources 
+          et expertises pour révolutionner l'approche des entreprises en matière de durabilité, 
           créant un impact durable pour les générations futures.
         </p>
         <Button
