@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 const metrics = [
-  { value: 500, label: "Trees Planted", suffix: "+" },
-  { value: 1000, label: "Tons CO₂ Reduced", suffix: "+" },
-  { value: 50, label: "Partner Companies", suffix: "" },
+  { value: 500, label: "Arbres Plantés", suffix: "+" },
+  { value: 1000, label: "Tonnes de CO₂ Réduites", suffix: "+" },
+  { value: 50, label: "Entreprises Partenaires", suffix: "" },
 ];
 
 export const Impact = () => {
@@ -34,9 +34,9 @@ export const Impact = () => {
     >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <span className="text-sm font-medium text-primary-light">Our Impact</span>
+          <span className="text-sm font-medium text-primary-light">Notre Impact</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">
-            Making a Difference
+            Faire la Différence
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">

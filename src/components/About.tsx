@@ -3,18 +3,18 @@ import { Leaf, Shield, Globe } from "lucide-react";
 const values = [
   {
     icon: Leaf,
-    title: "Sustainable Innovation",
-    description: "Creating eco-friendly solutions that drive positive change.",
+    title: "Innovation Durable",
+    description: "Créer des solutions écologiques qui favorisent le changement positif.",
   },
   {
     icon: Shield,
-    title: "Environmental Protection",
-    description: "Safeguarding our planet's resources for future generations.",
+    title: "Protection Environnementale",
+    description: "Préserver les ressources de notre planète pour les générations futures.",
   },
   {
     icon: Globe,
-    title: "Global Impact",
-    description: "Making a difference on a worldwide scale, one step at a time.",
+    title: "Impact Global",
+    description: "Faire la différence à l'échelle mondiale, une étape à la fois.",
   },
 ];
 
@@ -23,9 +23,9 @@ export const About = () => {
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <span className="text-sm font-medium text-primary-light">About Us</span>
+          <span className="text-sm font-medium text-primary-light">À Propos</span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">
-            Our Mission & Values
+            Notre Mission & Nos Valeurs
           </h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

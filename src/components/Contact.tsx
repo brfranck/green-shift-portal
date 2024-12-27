@@ -9,8 +9,8 @@ export const Contact = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
+      title: "Message envoyé !",
+      description: "Nous vous répondrons dès que possible.",
     });
   };
 
@@ -20,11 +20,11 @@ export const Contact = () => {
         <div className="text-center mb-16 animate-fade-up">
           <span className="text-sm font-medium text-primary-light">Contact</span>
           <h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">
-            Get in Touch
+            Contactez-nous
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Ready to make a difference? Reach out to us and let's discuss how we
-            can help your business become more sustainable.
+            Prêt à faire la différence ? Contactez-nous pour discuter de la façon
+            dont nous pouvons aider votre entreprise à devenir plus durable.
           </p>
         </div>
         <form
@@ -33,12 +33,12 @@ export const Contact = () => {
         >
           <div className="grid grid-cols-2 gap-4">
             <Input
-              placeholder="First Name"
+              placeholder="Prénom"
               className="bg-white border-gray-200"
               required
             />
             <Input
-              placeholder="Last Name"
+              placeholder="Nom"
               className="bg-white border-gray-200"
               required
             />
@@ -50,7 +50,7 @@ export const Contact = () => {
             required
           />
           <Textarea
-            placeholder="Your Message"
+            placeholder="Votre Message"
             className="bg-white border-gray-200 min-h-[150px]"
             required
           />
@@ -58,7 +58,7 @@ export const Contact = () => {
             type="submit"
             className="w-full bg-primary text-white hover:bg-primary/90"
           >
-            Send Message
+            Envoyer le Message
           </Button>
         </form>
       </div>

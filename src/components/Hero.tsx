@@ -7,25 +7,25 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1501854140801-50d01698950b"
-          alt="Nature landscape"
+          alt="Paysage naturel"
           className="w-full h-full object-cover opacity-20"
         />
       </div>
       <div className="relative container mx-auto text-center z-10 animate-fade-up">
         <span className="inline-block px-4 py-1 mb-6 text-sm font-medium rounded-full bg-white/10 text-secondary backdrop-blur-sm">
-          Welcome to Green Shift
+          Bienvenue chez Green Shift
         </span>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-secondary">
-          Shaping a Sustainable Future
+          Façonner un Avenir Durable
         </h1>
         <p className="text-lg md:text-xl text-secondary/90 max-w-2xl mx-auto mb-8">
-          We're revolutionizing the way businesses approach sustainability,
-          creating lasting impact for generations to come.
+          Nous révolutionnons l'approche des entreprises en matière de durabilité,
+          créant un impact durable pour les générations futures.
         </p>
         <Button
           className="group bg-secondary text-primary hover:bg-secondary/90 transition-all duration-300"
         >
-          Discover Our Solutions
+          Découvrez Nos Solutions
           <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
         </Button>
       </div>
