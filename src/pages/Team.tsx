@@ -12,7 +12,7 @@ const teamMembers = [
   {
     name: "Yvette Mwinja",
     role: "Directrice de la Production",
-    bio: "Ingénieure en Agronomie, elle a travaillé dans des unités de transformation agro-industrielle au dans des pays de Grand-Lacs d'Afrique.",
+    bio: "Ingénieure en Agronomie, elle a travaillé dans des unités de transformation agro-industrielle dans des pays de Grand-Lacs d'Afrique.",
     imageUrl: "/placeholder.svg",
     initials: "YM"
   },
