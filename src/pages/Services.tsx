@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Calculator } from "@/components/Calculator";
+import { ProcessTimeline } from "@/components/ProcessTimeline";
+import { CaseStudies } from "@/components/CaseStudies";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Services = () => {
   const services = [
@@ -56,25 +60,46 @@ const Services = () => {
         </p>
       </motion.div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
-      >
-        {services.map((service, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{service.description}</p>
-              </CardContent>
-            </Card>
+      <Tabs defaultValue="services" className="w-full">
+        <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsTrigger value="services">Services</TabsTrigger>
+          <TabsTrigger value="process">Processus</TabsTrigger>
+          <TabsTrigger value="impact">Impact</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="services">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          >
+            {services.map((service, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="h-full bg-white/80 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="text-xl text-primary">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground">{service.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
+        </TabsContent>
+
+        <TabsContent value="process">
+          <ProcessTimeline />
+        </TabsContent>
+
+        <TabsContent value="impact">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Calculator />
+            <CaseStudies />
+          </div>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };
