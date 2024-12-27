@@ -1,6 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Image } from "@/components/ui/image";
 
 export const CaseStudies = () => {
   const studies = [
@@ -8,13 +7,13 @@ export const CaseStudies = () => {
       title: "Installation Solaire - Village de Kalonge",
       description: "Équipement de 50 ménages et une école primaire en systèmes solaires",
       impact: "-70% de dépenses en carburants fossiles",
-      image: "/lovable-uploads/photo-1501286353178-1ec881214838"
+      image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
     },
     {
       title: "Production de Compost - Région de Bukavu",
       description: "Transformation des déchets alimentaires en compost de haute qualité",
       impact: "30 agriculteurs bénéficiaires",
-      image: "/lovable-uploads/photo-1487058792275-0ad4aaf24ca7"
+      image: "/lovable-uploads/photo-1501286353178-1ec881214838"
     },
     {
       title: "Réduction Énergétique - Entreprise A",
