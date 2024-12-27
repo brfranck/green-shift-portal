@@ -10,15 +10,21 @@ const Team = () => {
       image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
     },
     {
+      name: "Elvis Muhemeri",
+      role: "Directeur de la Production",
+      bio: "Ingénieur en Agronomie, il a travaillé dans des unités de transformation agro-industrielle au dans des pays de Grand-Lacs d'Afrique.",
+      image: "/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg"
+    },
+    {
       name: "Yvette Mwinja",
-      role: "Directrice de la Production",
-      bio: "Ingénieure en Agronomie, elle a travaillé dans des unités de transformation agro-industrielle au dans des pays de Grand-Lacs d'Afrique.",
+      role: "Directrice Commerciale",
+      bio: "Titulaire d'un diplôme en Marketing, elle a développé des compétences dans la commercialisation de produits durables auprès des ménages et des entreprises.",
       image: "/lovable-uploads/f2f6789f-05c2-4596-be1f-c893cfc1928e.png"
     },
     {
       name: "Alice Mugoli",
-      role: "Directrice Commerciale",
-      bio: "Titulaire d'un diplôme en Marketing, elle a développé des compétences dans la commercialisation de produits durables auprès des ménages et des entreprises.",
+      role: "Responsable des Relations Communautaires",
+      bio: "Expert en développement communautaire avec une formation en sciences sociales, spécialisée dans la mise en œuvre de programmes environnementaux et la mobilisation communautaire.",
       image: "/lovable-uploads/86d19036-0883-4c5b-a3d2-3786440141bf.png"
     },
     {
@@ -26,12 +32,6 @@ const Team = () => {
       role: "Responsable de l'Innovation",
       bio: "Diplômé en sciences de l'environnement, il apporte son expertise dans l'optimisation des procédés de valorisation des déchets agricoles.",
       image: "/lovable-uploads/9e274ff4-2898-4570-92ba-21c33d085114.png"
-    },
-    {
-      name: "Elvis Muhemeri",
-      role: "Responsable des Relations Communautaires",
-      bio: "Expert en développement communautaire avec une formation en sciences sociales, spécialisé dans la mise en œuvre de programmes environnementaux et la mobilisation communautaire.",
-      image: "/lovable-uploads/photo-1581092795360-fd1ca04f0952.jpg"
     }
   ];
 
