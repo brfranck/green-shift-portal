@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ProjectFilters } from "@/components/projects/ProjectFilters";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { exportToWord, exportToPDF } from "@/utils/exportProjects";
 import { DownloadIcon } from "lucide-react";
@@ -15,10 +13,6 @@ import {
 
 const Projects = () => {
   const navigate = useNavigate();
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
-  const [selectedImpacts, setSelectedImpacts] = useState<string[]>([]);
-  const [selectedYear, setSelectedYear] = useState<string | null>(null);
   
   const projects = [
     {
@@ -108,34 +102,11 @@ const Projects = () => {
     }
   ];
 
-  const projectTypes = ["Énergie renouvelable", "Gestion des déchets", "Éducation environnementale", "Écotourisme"];
-  const locations = ["Bukavu", "Kivu"];
-  const impactTypes = ["Réduction CO2", "Création d'emplois", "Économie d'énergie", "Éducation", "Gestion des déchets", "Agriculture durable", "Conservation biodiversité", "Développement local"];
-  const years = ["2023", "2022"];
-
-  const filteredProjects = projects.filter(project => {
-    const typeMatch = !selectedType || selectedType === "all" || project.type === selectedType;
-    const locationMatch = !selectedLocation || selectedLocation === "all" || project.location === selectedLocation;
-    const impactsMatch = selectedImpacts.length === 0 || 
-      project.impactTypes.some(impact => selectedImpacts.includes(impact));
-    const yearMatch = !selectedYear || selectedYear === "all" || project.year === selectedYear;
-    
-    return typeMatch && locationMatch && impactsMatch && yearMatch;
-  });
-
-  const handleImpactChange = (impact: string) => {
-    setSelectedImpacts(prev => 
-      prev.includes(impact)
-        ? prev.filter(i => i !== impact)
-        : [...prev, impact]
-    );
-  };
-
   const handleExport = (format: 'pdf' | 'word') => {
     if (format === 'pdf') {
-      exportToPDF(filteredProjects);
+      exportToPDF(projects);
     } else {
-      exportToWord(filteredProjects);
+      exportToWord(projects);
     }
   };
 
@@ -183,28 +154,13 @@ const Projects = () => {
         </DropdownMenu>
       </div>
 
-      <ProjectFilters
-        projectTypes={projectTypes}
-        locations={locations}
-        impactTypes={impactTypes}
-        years={years}
-        selectedType={selectedType}
-        selectedLocation={selectedLocation}
-        selectedImpacts={selectedImpacts}
-        selectedYear={selectedYear}
-        setSelectedType={setSelectedType}
-        setSelectedLocation={setSelectedLocation}
-        handleImpactChange={handleImpactChange}
-        setSelectedYear={setSelectedYear}
-      />
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
       >
-        {filteredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
       </motion.div>
@@ -231,4 +187,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
