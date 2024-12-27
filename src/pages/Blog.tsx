@@ -7,14 +7,14 @@ const blogPosts = [
     title: "Les briquettes écologiques : Une solution pour préserver nos forêts",
     excerpt: "Face à la déforestation massive en RDC, les briquettes écologiques apparaissent comme une alternative durable au charbon de bois. Découvrez comment GreenShift contribue à ce changement.",
     category: "Technologies Vertes",
-    imageUrl: "/lovable-uploads/2b1fcc8a-6324-40f5-bc24-f826f5844c98.png"
+    imageUrl: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
   },
   {
     id: 2,
     title: "5 astuces pour adopter un style de vie écoresponsable",
     excerpt: "Du tri des déchets à l'utilisation de produits locaux, ces gestes simples peuvent faire une grande différence pour la planète et votre quotidien.",
     category: "Conseils Pratiques",
-    imageUrl: "/lovable-uploads/cfc2dab0-d015-4512-ab4b-dff4c3912adc.png"
+    imageUrl: "/lovable-uploads/2b1fcc8a-6324-40f5-bc24-f826f5844c98.png"
   },
   {
     id: 3,
