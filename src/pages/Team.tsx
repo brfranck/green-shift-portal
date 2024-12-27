@@ -19,7 +19,7 @@ const Team = () => {
       name: "Alice Mugoli",
       role: "Directrice Commerciale",
       bio: "Titulaire d'un diplôme en Marketing, elle a développé des compétences dans la commercialisation de produits durables auprès des ménages et des entreprises.",
-      image: "/lovable-uploads/624d01f0-e3c6-4325-a571-726b16159595.png"
+      image: "/lovable-uploads/86d19036-0883-4c5b-a3d2-3786440141bf.png"
     },
     {
       name: "Salomon Lubunga",
