@@ -14,7 +14,7 @@ export const Hero = () => {
       </div>
       <div className="relative container mx-auto text-center z-10 animate-fade-up">
         <span className="inline-block px-4 py-1 mb-6 text-sm font-medium rounded-full bg-white/10 text-secondary backdrop-blur-sm">
-          Bienvenue chez Green Shift
+          Bienvenue chez GreenShift
         </span>
         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-secondary">
           Façonner un Avenir Durable
