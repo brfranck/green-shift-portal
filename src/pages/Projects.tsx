@@ -120,7 +120,7 @@ const Projects = () => {
       ],
       testimonial: {
         quote: "Depuis les travaux d'aménagement, notre quartier n'a plus connu d'inondation majeure. C'est un véritable soulagement pour toute la communauté.",
-        author: "Emmanuel, résident du quartier Nyalukemba"
+        author: "Mme Furaha Kalibanya, résidente du quartier Panzi"
       },
       type: "Infrastructure urbaine",
       location: "Bukavu",
