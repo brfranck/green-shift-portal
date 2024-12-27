@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
+import { ProjectFilters } from "@/components/projects/ProjectFilters";
+import { ProjectCard } from "@/components/projects/ProjectCard";
+import { exportToWord, exportToPDF } from "@/utils/exportProjects";
+import { DownloadIcon } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Projects = () => {
   const navigate = useNavigate();
@@ -125,23 +131,20 @@ const Projects = () => {
     );
   };
 
+  const handleExport = (format: 'pdf' | 'word') => {
+    if (format === 'pdf') {
+      exportToPDF(filteredProjects);
+    } else {
+      exportToWord(filteredProjects);
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
       }
     }
   };
@@ -161,80 +164,39 @@ const Projects = () => {
         </p>
       </motion.div>
 
-      <div className="mb-8 p-6 bg-secondary/10 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4">Filtres</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div>
-            <h3 className="font-medium mb-2">Type de projet</h3>
-            <RadioGroup value={selectedType || ""} onValueChange={setSelectedType}>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <RadioGroupItem value="" id="type-all" />
-                  <Label className="ml-2" htmlFor="type-all">Tous</Label>
-                </div>
-                {projectTypes.map(type => (
-                  <div key={type} className="flex items-center">
-                    <RadioGroupItem value={type} id={`type-${type}`} />
-                    <Label className="ml-2" htmlFor={`type-${type}`}>{type}</Label>
-                  </div>
-                ))}
-              </div>
-            </RadioGroup>
-          </div>
-
-          <div>
-            <h3 className="font-medium mb-2">Localisation</h3>
-            <RadioGroup value={selectedLocation || ""} onValueChange={setSelectedLocation}>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <RadioGroupItem value="" id="location-all" />
-                  <Label className="ml-2" htmlFor="location-all">Toutes</Label>
-                </div>
-                {locations.map(location => (
-                  <div key={location} className="flex items-center">
-                    <RadioGroupItem value={location} id={`location-${location}`} />
-                    <Label className="ml-2" htmlFor={`location-${location}`}>{location}</Label>
-                  </div>
-                ))}
-              </div>
-            </RadioGroup>
-          </div>
-
-          <div>
-            <h3 className="font-medium mb-2">Impact</h3>
-            <div className="space-y-2">
-              {impactTypes.map(impact => (
-                <div key={impact} className="flex items-center">
-                  <Checkbox
-                    id={`impact-${impact}`}
-                    checked={selectedImpacts.includes(impact)}
-                    onCheckedChange={() => handleImpactChange(impact)}
-                  />
-                  <Label className="ml-2" htmlFor={`impact-${impact}`}>{impact}</Label>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-medium mb-2">Année</h3>
-            <RadioGroup value={selectedYear || ""} onValueChange={setSelectedYear}>
-              <div className="space-y-2">
-                <div className="flex items-center">
-                  <RadioGroupItem value="" id="year-all" />
-                  <Label className="ml-2" htmlFor="year-all">Toutes</Label>
-                </div>
-                {years.map(year => (
-                  <div key={year} className="flex items-center">
-                    <RadioGroupItem value={year} id={`year-${year}`} />
-                    <Label className="ml-2" htmlFor={`year-${year}`}>{year}</Label>
-                  </div>
-                ))}
-              </div>
-            </RadioGroup>
-          </div>
-        </div>
+      <div className="flex justify-end mb-4">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="gap-2">
+              <DownloadIcon className="h-4 w-4" />
+              Télécharger la liste
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuItem onClick={() => handleExport('pdf')}>
+              Format PDF
+            </DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleExport('word')}>
+              Format Word
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
+
+      <ProjectFilters
+        projectTypes={projectTypes}
+        locations={locations}
+        impactTypes={impactTypes}
+        years={years}
+        selectedType={selectedType}
+        selectedLocation={selectedLocation}
+        selectedImpacts={selectedImpacts}
+        selectedYear={selectedYear}
+        setSelectedType={setSelectedType}
+        setSelectedLocation={setSelectedLocation}
+        handleImpactChange={handleImpactChange}
+        setSelectedYear={setSelectedYear}
+      />
 
       <motion.div
         variants={containerVariants}
@@ -243,47 +205,7 @@ const Projects = () => {
         className="grid grid-cols-1 md:grid-cols-2 gap-8"
       >
         {filteredProjects.map((project, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <Card className="h-full bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary">{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  <span className="text-sm bg-primary/10 text-primary px-2 py-1 rounded-full">
-                    {project.type}
-                  </span>
-                  <span className="text-sm bg-secondary/10 text-secondary-foreground px-2 py-1 rounded-full">
-                    {project.location}
-                  </span>
-                  <span className="text-sm bg-accent/10 text-accent-foreground px-2 py-1 rounded-full">
-                    {project.year}
-                  </span>
-                </div>
-                <CardDescription className="text-base mt-2">
-                  {project.description}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="bg-secondary/50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-primary mb-2">Résultats et impacts :</h3>
-                    <ul className="list-disc list-inside space-y-1">
-                      {project.impacts.map((impact, i) => (
-                        <li key={i} className="text-muted-foreground">{impact}</li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="bg-accent/10 p-4 rounded-lg">
-                    <blockquote className="italic text-muted-foreground">
-                      "{project.testimonial.quote}"
-                      <footer className="mt-2 font-medium text-primary">
-                        — {project.testimonial.author}
-                      </footer>
-                    </blockquote>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+          <ProjectCard key={index} project={project} />
         ))}
       </motion.div>
 
