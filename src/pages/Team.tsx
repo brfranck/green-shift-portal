@@ -4,9 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 const Team = () => {
   const team = [
     {
-      name: "Sophie Martin",
-      role: "Directrice Générale",
-      bio: "15 ans d'expérience en développement durable",
+      name: "Patient Asifiwe",
+      role: "Directeur Général",
+      bio: "Leader visionnaire dans le développement durable",
       image: "/lovable-uploads/84a33283-1369-4c60-9cf3-1b504beba5a1.png"
     },
     {
